@@ -16,17 +16,29 @@ export default function ContactSection() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setShowSuccess(true);
-    setFormData({
-      name: "",
-      email: "",
-      subject: "",
-      message: "",
-    });
+
+    try {
+      const response = await fetch("https://formspree.io/f/xkgzbbvz", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: new FormData(e.target as HTMLFormElement),
+      });
+
+      if (response.ok) {
+        setShowSuccess(true);
+        setFormData({ name: "", email: "", subject: "", message: "" });
+      } else {
+        console.error("Formspree submission failed.");
+      }
+    } catch (error) {
+      console.error("Network error:", error);
+    }
   };
+
 
   return (
     <section id="contact" className="py-16 px-8 max-w-6xl mx-auto w-full">
