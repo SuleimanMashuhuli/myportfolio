@@ -41,21 +41,24 @@ export default function ContactSection() {
 
 
   return (
-    <section id="contact" className="py-16 px-8 max-w-6xl mx-auto w-full">
-      <h2 className="text-center text-4xl font-bold mb-12">Get in Touch</h2>
+    <section id="contact" className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 max-w-6xl mx-auto w-full">
+      <div className="text-center  mb-8 sm:mb-12">
+        <h2 className=" text-3xl sm:text-4xl font-bold">Get in Touch</h2>
+        <span className="font-normal text-gray-500"> My handle</span>
+      </div>
 
-      <div className="flex flex-col md:flex-row gap-12">
+      <div className="flex flex-col lg:flex-row gap-8 sm:gap-12">
         {/* Left: Contact Info */}
-        <div className="md:w-1/2 space-y-6 text-lg">
+        <div className="lg:w-1/2 space-y-4 sm:space-y-6 text-base sm:text-lg">
           <div>
-            <h3 className="text-xl font-semibold">Call Me</h3>
-            <p className="text-gray-700">+254 757 853 784</p>
+            <h3 className="text-lg sm:text-xl font-semibold">Call Me</h3>
+            <p className="text-gray-700 text-sm sm:text-base">+254 757 853 784</p>
           </div>
           <div>
-            <h3 className="text-xl font-semibold">Email</h3>
+            <h3 className="text-lg sm:text-xl font-semibold">Email</h3>
             <a
               href="mailto:alisuleimann4@gmail.com"
-              className="text-blue-600 hover:underline"
+              className="text-blue-600 hover:underline text-sm sm:text-base"
             >
               alisuleimann4@gmail.com
             </a>
@@ -71,6 +74,7 @@ export default function ContactSection() {
                 alt="LinkedIn"
                 width={32}
                 height={32}
+                className="w-6 h-6 sm:w-8 sm:h-8"
               />
             </a>
             <a
@@ -83,29 +87,30 @@ export default function ContactSection() {
                 alt="GitHub"
                 width={32}
                 height={32}
+                className="w-6 h-6 sm:w-8 sm:h-8"
               />
             </a>
           </div>
           <div>
-            <h3 className="text-xl font-semibold">Location</h3>
-            <p className="text-gray-700">Nairobi, Kenya</p>
+            <h3 className="text-lg sm:text-xl font-semibold">Location</h3>
+            <p className="text-gray-700 text-sm sm:text-base">Nairobi, Kenya</p>
           </div>
         </div>
 
         {/* Right: Contact Form */}
-        <div className="md:w-1/2 bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-bold text-gray-800 mb-6">
+        <div className="lg:w-1/2 bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">
             Send me a Message
           </h2>
 
           {showSuccess && (
-            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6">
+            <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6 text-sm sm:text-base">
               Thank you! I&apos;ll get back to you within 24 hours.
             </div>
           )}
 
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
                   Full Name *
@@ -116,7 +121,7 @@ export default function ContactSection() {
                   value={formData.name}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm sm:text-base"
                   placeholder="Your full name"
                 />
               </div>
@@ -131,7 +136,7 @@ export default function ContactSection() {
                   value={formData.email}
                   onChange={handleInputChange}
                   required
-                  className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                  className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm sm:text-base"
                   placeholder="you@example.com"
                 />
               </div>
@@ -147,7 +152,7 @@ export default function ContactSection() {
                 value={formData.subject}
                 onChange={handleInputChange}
                 required
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm sm:text-base"
                 placeholder="How can I help you?"
               />
             </div>
@@ -161,15 +166,15 @@ export default function ContactSection() {
                 value={formData.message}
                 onChange={handleInputChange}
                 required
-                rows={6}
-                className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent"
+                rows={4}
+                className="w-full p-2 sm:p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent text-sm sm:text-base resize-none"
                 placeholder="Tell me about your project, idea or safari dream..."
               />
             </div>
 
             <button
               type="submit"
-              className="w-full bg-red-500 hover:bg-red-600 text-white py-3 px-6 rounded-lg font-semibold transition-colors duration-200"
+              className="w-full bg-red-500 hover:bg-red-600 text-white py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-semibold transition-colors duration-200 text-sm sm:text-base"
             >
               Send Message
             </button>
